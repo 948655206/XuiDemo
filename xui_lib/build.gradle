@@ -3,8 +3,8 @@ apply plugin: 'com.android.library'
 //apply plugin: 'img-optimizer'
 //apply plugin: 'com.github.dcendents.android-maven'
 // 添加这行
-apply plugin: 'maven-publish'
-group='com.github.XuiDemo'
+//apply plugin: 'maven-publish'
+//group='com.github.XuiDemo'
 
 android {
     compileSdkVersion 30
@@ -36,6 +36,7 @@ dependencies {
 
 }
 
+apply from: '../JitPackUpload.gradle'
 
 
 // 添加这个配置块
@@ -43,10 +44,10 @@ dependencies {
 //    publishing {
 //        publications {
 //            debug(MavenPublication) {
-//                from components.debug
-//                groupId 'com.example'
-//                artifactId 'my-library'
-//                version '1.0.0'
+//                from components.release
+//                groupId 'com.github.XuiDemo'
+//                artifactId '1234'
+//                version '1.0.2'
 //            }
 //        }
 //
