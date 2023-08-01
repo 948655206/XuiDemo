@@ -1,6 +1,10 @@
 apply plugin: 'com.android.library'
 //apply plugin: 'maven-publish'
 //apply plugin: 'img-optimizer'
+//apply plugin: 'com.github.dcendents.android-maven'
+// 添加这行
+apply plugin: 'maven-publish'
+group='com.github.XuiDemo'
 
 android {
     compileSdkVersion 30
@@ -32,8 +36,7 @@ dependencies {
 
 }
 
-// 添加这行
-apply plugin: 'maven-publish'
+
 
 // 添加这个配置块
 //afterEvaluate {
