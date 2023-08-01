@@ -1,0 +1,105 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    //指明要使用maven插件
+    id 'maven-publish'
+}
+
+android {
+    namespace 'com.example.xuidemo'
+    compileSdk 33
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
+        dataBinding = true
+    }
+    defaultConfig {
+        applicationId "com.example.xuidemo"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+allprojects {
+    dependencies {
+        implementation 'androidx.appcompat:appcompat:1.6.1'
+    }
+
+}
+dependencies {
+
+    implementation project(":xui_lib")
+    dependencies {
+        // 日志调试框架：https://github.com/getActivity/Logcat
+        debugImplementation 'com.github.getActivity:Logcat:11.3'
+    }
+    // if u use AndroidX, use the following
+    implementation 'com.blankj:utilcodex:1.31.1'
+
+    implementation 'com.google.android.material:material:1.9.0'
+
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation 'com.github.948655206:XUI:v1.0.1'
+
+}
+
+
+////定义一个uploadArchives task，并且指明要上传的参数
+//apply plugin: 'maven-publish'
+//
+//def GROUP_ID = "com.engineer.third"
+//def ARTIFACT_ID = "thirdlib"
+//def VERSION = "1.0.0"
+//
+//// 上传源码的 task
+//task sourceJar(type: Jar) {
+//    from android.sourceSets.main.java.srcDirs
+//    archiveClassifier = "sources"
+//}
+//publishing {
+//    publications {
+//        maven(MavenPublication) {
+//            groupId = 'xyz.mlya.javaassist'
+//            artifactId = 'modify'
+//            version = '1.0.0'
+//
+//            from components.java
+//        }
+//    }
+//
+//    repositories {
+//        maven {
+//            url = "../repo"
+//        }
+//    }
+//}

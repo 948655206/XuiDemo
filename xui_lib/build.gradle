@@ -1,0 +1,54 @@
+apply plugin: 'com.android.library'
+//apply plugin: 'maven-publish'
+//apply plugin: 'img-optimizer'
+
+android {
+    compileSdkVersion 30
+//    compileSdkVersion build_versions.target_sdk
+//    buildToolsVersion build_versions.build_tools
+
+    defaultConfig {
+        minSdkVersion 17
+//        targetSdkVersion build_versions.target_sdk
+
+        vectorDrawables.useSupportLibrary = true
+        consumerProguardFiles "proguard-rules.pro"
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation deps.androidx.appcompat
+    compileOnly deps.androidx.recyclerview
+    compileOnly deps.androidx.design
+    compileOnly deps.glide
+
+
+    api 'io.github.inflationx:calligraphy3:3.1.1'
+    api 'io.github.inflationx:viewpump:2.0.3'
+
+}
+
+// 添加这行
+apply plugin: 'maven-publish'
+
+// 添加这个配置块
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            debug(MavenPublication) {
+//                from components.debug
+//                groupId 'com.example'
+//                artifactId 'my-library'
+//                version '1.0.0'
+//            }
+//        }
+//
+//    }
+//}
+
+
+//apply from: '../JitPackUpload.gradle'
