@@ -299,7 +299,7 @@
     </style>
 
     <!--  BottomSheetDialog的XUI样式  -->
-    <style name="XUITheme.BottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+    <style name="XUITheme.BottomSheetDialog" parent="Theme.AppCompat.Dialog">
         <!-- 主题色style -->
         <item name="colorAccent">@color/xui_config_color_main_theme</item>
         <item name="colorPrimary">@color/xui_config_color_main_theme</item>
