@@ -57,7 +57,7 @@ public class XUI {
                     .addInterceptor(new CalligraphyInterceptor(
                             new CalligraphyConfig.Builder()
                                     .setDefaultFontPath(defaultFontAssetPath)
-                                    .setFontAttrId(io.github.inflationx.calligraphy3.R.attr.fontPath)
+                                    .setFontAttrId(R.attr.fontPath)
                                     .build()))
                     .build());
         }
