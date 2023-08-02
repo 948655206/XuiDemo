@@ -7,9 +7,9 @@ apply plugin: 'com.android.library'
 //group='com.github.XuiDemo'
 
 android {
-    compileSdkVersion 30
-//    compileSdkVersion build_versions.target_sdk
-//    buildToolsVersion build_versions.build_tools
+//    compileSdkVersion 30
+    compileSdkVersion build_versions.target_sdk
+    buildToolsVersion build_versions.build_tools
 
     defaultConfig {
         minSdkVersion 17

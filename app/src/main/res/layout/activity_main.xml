@@ -7,10 +7,6 @@
     tools:context=".MainActivity">
 
 
-<!--    <com.xuexiang.xui.widget.progress.ratingbar.RatingBar-->
-<!--        android:id="@+id/rating"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
 
 <!--        app:srb_clearRatingEnabled="false"-->
 <!--        app:srb_numStars="5"-->
