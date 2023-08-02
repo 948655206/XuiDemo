@@ -1,6 +1,6 @@
 <resources>
     <!--默认字体路径-->
-    <string name="default_app_font_path"></string>
+    <string name="default_app_font_path" />
 
     <string name="xui_tip_expand" translatable="false">展开</string>
     <string name="xui_tip_shrink" translatable="false">收缩</string>
