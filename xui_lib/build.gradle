@@ -1,15 +1,27 @@
-apply plugin: 'com.android.library'
 //apply plugin: 'maven-publish'
 //apply plugin: 'img-optimizer'
 //apply plugin: 'com.github.dcendents.android-maven'
 // 添加这行
-apply plugin: 'maven-publish'
+//apply plugin: 'maven-publish'
 //group='com.github.XuiDemo'
+
+plugins{
+    id 'com.android.library'
+    id 'maven-publish'
+}
 
 android {
 //    compileSdkVersion 30
     compileSdkVersion 33
     buildToolsVersion "30.0.3"
+
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+            withJavadocJar()
+        }
+        // ...
+    }
 
     defaultConfig {
         minSdkVersion 17
@@ -59,35 +71,19 @@ dependencies {
 }
 
 
-// 这部分是用于发布你的项目的配置
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.wustyq.ToastLib' //groupId 随便取
+                artifactId = 'wustyq'  //artifactId 随便取
+                version = '1.0.0'
+            }
+        }
+    }
+}
 
-// Because the components are created only during the afterEvaluate phase, you must
-// configure your publications using the afterEvaluate() lifecycle method.
-//afterEvaluate {
-//    publishing {
-//        publications {
-//            // Creates a Maven publication called "release".
-//            release(MavenPublication) {
-//                // Applies the component for the release build variant.
-//                from components.release
-//
-//                // You can then customize attributes of the publication as shown below.
-//                groupId = 'com.example.MyLibrary'
-//                artifactId = 'final'
-//                version = '1.0.6'
-//            }
-//            // Creates a Maven publication called “debug”.
-//            debug(MavenPublication) {
-//                // Applies the component for the debug build variant.
-//                from components.debug
-//
-//                groupId = 'com.example.MyLibrary'
-//                artifactId = 'final-debug'
-//                version = '1.0.6'
-//            }
-//        }
-//    }
-//}
 
 
 //apply from: '../JitPackUpload.gradle'
